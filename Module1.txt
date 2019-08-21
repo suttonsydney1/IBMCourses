@@ -1,0 +1,32 @@
+import pandas as pd 
+#open file
+file = "https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
+data_frame = pd.read_csv(file, header=None)
+
+#show first 5 rows of data frame
+df.head(5)
+#show last 5 rows of data frame
+df.tail(5)
+
+#create headers
+headers = ["symboling","normalized-losses","make","fuel-type","aspiration", "num-of-doors","body-style",
+         "drive-wheels","engine-location","wheel-base", "length","width","height","curb-weight","engine-type",
+         "num-of-cylinders", "engine-size","fuel-system","bore","stroke","compression-ratio","horsepower",
+         "peak-rpm","city-mpg","highway-mpg","price"]
+print("Headers\n", headers)
+df.columns = headers
+df.head(5)
+print(df.columns)
+
+#save data frame in csv format and rename
+#df.to_csv saves data frame to csv format (can do same for excel or sql)
+#"automobile.csv" saves it under that name
+df.to_csv("automobile.csv", index=False) 
+
+#knowing data type
+print(df.dtypes)
+
+#statistical summary of each column; include = "all" shows NaN (not a number) values
+dataframe.describe(include = "all")
+
+df.info
